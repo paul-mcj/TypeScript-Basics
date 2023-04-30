@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NewTodo from "./components/NewTodo";
+import Todos from "./components/Todos";
+import TodosContextProvider from "./context/todos_context";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+     return (
+          <TodosContextProvider>
+               <div
+                    style={{
+                         display: "flex",
+                         justifyContent: "center",
+                         alignItems: "center",
+                         width: "50%",
+                    }}
+               >
+                    {/* <NewTodo onAddTodoItem={handleOnAddTodo} /> */}
+                    {/* since items is a mandatory prop in the Todos component, it needs to be explicity passed a value*/}
+                    {/* <Todos items={todos} onRemoveTodoItem={handleOnRemoveTodo} /> */}
+                    <NewTodo />
+                    <Todos />
+               </div>
+          </TodosContextProvider>
+     );
 }
 
 export default App;
